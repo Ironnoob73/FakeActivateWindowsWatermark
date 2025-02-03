@@ -64,7 +64,8 @@ text = "X"
 [node name="XPos" type="SpinBox" parent="PosSettingWindow/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-value = 1600.0
+max_value = 2.14748e+09
+value = 1500.0
 allow_greater = true
 update_on_text_changed = true
 
@@ -78,7 +79,8 @@ text = "Y"
 [node name="YPos" type="SpinBox" parent="PosSettingWindow/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-value = 900.0
+max_value = 2.14748e+09
+value = 950.0
 allow_greater = true
 update_on_text_changed = true
 
