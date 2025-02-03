@@ -1,0 +1,189 @@
+[gd_scene load_steps=3 format=3 uid="uid://cixnwk4a5srvx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ayp7u"]
+[ext_resource type="Texture2D" uid="uid://gw7apfllj88k" path="res://icon.svg" id="2_n8xeo"]
+
+[node name="Control" type="VBoxContainer"]
+offset_right = 256.0
+offset_bottom = 61.0
+mouse_filter = 2
+script = ExtResource("1_ayp7u")
+
+[node name="Main" type="Label" parent="."]
+modulate = Color(0.74902, 0.74902, 0.74902, 0.74902)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Activate Windows"
+
+[node name="Sub" type="Label" parent="."]
+modulate = Color(0.74902, 0.74902, 0.74902, 0.74902)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Go to Settings to activate Windows."
+
+[node name="StatusIndicator" type="StatusIndicator" parent="."]
+tooltip = "Fake Active Windows Watermark"
+icon = ExtResource("2_n8xeo")
+menu = NodePath("../PopupMenu")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+prefer_native_menu = true
+item_count = 4
+item_0/text = "Position"
+item_1/text = "Text"
+item_1/id = 1
+item_2/text = "Color"
+item_2/id = 2
+item_3/text = "Exit"
+item_3/id = 3
+
+[node name="PosSettingWindow" type="Window" parent="."]
+initial_position = 2
+size = Vector2i(100, 101)
+visible = false
+wrap_controls = true
+exclusive = true
+unresizable = true
+borderless = true
+force_native = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PosSettingWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PosSettingWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PosSettingWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="XPos" type="SpinBox" parent="PosSettingWindow/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 1600.0
+allow_greater = true
+update_on_text_changed = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PosSettingWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PosSettingWindow/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Y"
+
+[node name="YPos" type="SpinBox" parent="PosSettingWindow/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 900.0
+allow_greater = true
+update_on_text_changed = true
+
+[node name="Button" type="Button" parent="PosSettingWindow/VBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[node name="TextSettingWindow" type="Window" parent="."]
+auto_translate_mode = 1
+initial_position = 2
+size = Vector2i(148, 101)
+visible = false
+wrap_controls = true
+exclusive = true
+unresizable = true
+borderless = true
+force_native = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextSettingWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextSettingWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextSettingWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Main Title"
+
+[node name="MainTitleText" type="LineEdit" parent="TextSettingWindow/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Activate Windows"
+placeholder_text = "Activate Windows"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextSettingWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextSettingWindow/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sub Title"
+
+[node name="SubTitleText" type="LineEdit" parent="TextSettingWindow/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Go to Settings to activate Windows."
+placeholder_text = "Go to Settings to activate Windows."
+
+[node name="Button" type="Button" parent="TextSettingWindow/VBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[node name="ColorSettingWindow" type="Window" parent="."]
+auto_translate_mode = 1
+initial_position = 2
+visible = false
+wrap_controls = true
+exclusive = true
+unresizable = true
+borderless = true
+force_native = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorSettingWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorSettingWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorSettingWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Main Title"
+
+[node name="MainTitleColor" type="ColorPickerButton" parent="ColorSettingWindow/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.74902, 0.74902, 0.74902, 0.74902)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorSettingWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorSettingWindow/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Sub Title"
+
+[node name="SubTitleColor" type="ColorPickerButton" parent="ColorSettingWindow/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.74902, 0.74902, 0.74902, 0.74902)
+
+[node name="Button" type="Button" parent="ColorSettingWindow/VBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]
+[connection signal="button_down" from="PosSettingWindow/VBoxContainer/Button" to="." method="_on_pos_button_down"]
+[connection signal="button_down" from="TextSettingWindow/VBoxContainer/Button" to="." method="_on_text_button_down"]
+[connection signal="button_down" from="ColorSettingWindow/VBoxContainer/Button" to="." method="_on_color_button_down"]
